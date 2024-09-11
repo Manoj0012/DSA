@@ -1,0 +1,20 @@
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int l=0,r=0,t=0,sum=0;
+        int len=nums.length;
+        while(r<len)
+        {
+             if(nums[r]==0){
+                t++;
+            }
+            while(t>k){
+                if(nums[l]==0){t--;}
+                l++;
+            }
+            System.out.println((r-l)+1);
+             sum=Math.max(sum,(r-l)+1);
+            r++;
+        }
+         return sum;
+    }
+}
