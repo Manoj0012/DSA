@@ -1,0 +1,19 @@
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+         int sum=0,in=(int)Math.pow(2,31);
+         int temp;
+        int l=0,r=0;
+        while(r<nums.length){
+         sum+=nums[r];
+            while(sum>=target){
+                temp=r-l+1;
+                if(temp<in){
+                    in=temp;
+                    }  
+                sum-=nums[l++];    
+            }
+         r++;
+        }
+        return in==2147483647? 0: in;
+    }
+}
